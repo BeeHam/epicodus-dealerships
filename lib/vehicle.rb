@@ -1,7 +1,7 @@
 class Vehicle
   @@vehicles = []
 
-  define_method(:initialze) do |make, model, year|
+  define_method(:initialize) do |make, model, year|
     @make = make
     @model = model
     @year = year
@@ -34,5 +34,10 @@ class Vehicle
   define_method(:age) do
     current_year = Time.new().year()
     age = current_year.-(@year)
+  end
+
+  define_method(:worth_buying?) do
+    american_cars = ["Chrysler", "Ford", "GM"]
+    american_cars.include?(@make).&(self.age.<=(15))
   end
 end
