@@ -30,4 +30,10 @@ describe('Vehicle') do
     end
   end
 
+  describe(".all") do
+    it("empty at first") do
+      expect(Vehicle.all()).to(eq([]))
+    end
+  end
+  
 end
