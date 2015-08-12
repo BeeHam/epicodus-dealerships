@@ -2,9 +2,9 @@ require('rspec')
 require('vehicle')
 
 describe('Vehicle') do
-  # before() do
-  #   Vehicle.clear()
-  # end
+  before() do
+    Vehicle.clear()
+  end
 
   describe('#make') do
     it("returns the make of the vehicle") do
@@ -35,5 +35,20 @@ describe('Vehicle') do
       expect(Vehicle.all()).to(eq([]))
     end
   end
-  
+
+  describe('.clear') do
+    it("empties out all of the saved vehicles") do
+        Vehicle.new("Toyota", "Prius", 2000).save()
+        Vehicle.clear()
+        expect(Vehicle.all()).to(eq([]))
+    end
+  end
+
+  describe('#age') do
+    it("returns the vehicles age") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      expect(test_vehicle.age()).to(eq(15))
+    end
+  end
+
 end
